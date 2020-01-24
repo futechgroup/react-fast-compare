@@ -8,6 +8,8 @@ var hasElementType = typeof Element !== 'undefined';
 function equal(a, b) {
   // fast-deep-equal index.js 2.0.1
   if (a === b) return true;
+  
+  if (typeof a === 'function' && typeof b === 'function') return true; // skip compare functions 
 
   if (a && b && typeof a == 'object' && typeof b == 'object') {
     var arrA = isArray(a)
